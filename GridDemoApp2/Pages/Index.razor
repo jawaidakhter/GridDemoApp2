@@ -1,0 +1,28 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<SfGrid DataSource="allCities" AllowFiltering="true" AllowSorting="true">
+	<GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Excel"></GridFilterSettings>
+	<GridColumns>
+		<GridColumn HeaderText="Name" Field="@nameof(CityDTO.Name)"></GridColumn>
+		<GridColumn HeaderText="Country" Field="@nameof(CityDTO.Country)"></GridColumn>
+	</GridColumns>
+</SfGrid>
+
+
+@code {
+	private List<CityDTO> allCities { get; set; } = new List<CityDTO>
+	{
+		new CityDTO{ Id=1, Country="UK", Name="London"},
+		new CityDTO {Id=2, Country="Pakistan", Name="Lahore"},
+		new CityDTO {Id=3, Country="Pakistan", Name="Multan"}
+	};
+
+	}
